@@ -1,11 +1,13 @@
 import React from 'react'
 import './App.css'
-import searchBar from './myComponents/searchBar'
+import RouterConfig from './routes'
 
 function App() {
-  return <div className="App">
-    {searchBar()}
-    </div>
+  return (
+    <div>
+    <RouterConfig/>
+  </div>
+  )
 }
 
 export default App
