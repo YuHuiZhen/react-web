@@ -1,4 +1,4 @@
-import Home from './Home';
+import Home from './Home'
 import MyPage from './MyPage'
 const routes = [
   {
@@ -11,5 +11,5 @@ const routes = [
     exact: true,
     component: MyPage,
   },
-];
+]
 export default routes;

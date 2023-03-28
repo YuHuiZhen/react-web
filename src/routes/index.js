@@ -7,7 +7,6 @@ const history = createBrowserHistory()
 function RouterConfig() {
   return (
     <Router history={history}>
-      {/* <Switch> */}
       <nav>
         <ul>
           <li>
@@ -22,15 +21,16 @@ function RouterConfig() {
           </li>
         </ul>
       </nav>
-      {routes.forEach((route) => {
-        ;<Route
-          // key={route.path}
-          path={route.path}
-          component={route.component}
-          exact={route.exact}
-        />
+      {routes.map((route) => {
+        return (
+          <Route
+            key={route.path}
+            path={route.path}
+            component={route.component}
+            exact={route.exact}
+          ></Route>
+        )
       })}
-      {/* </Switch> */}
     </Router>
   )
 }
