@@ -26,3 +26,15 @@ export function searchMusic(params){
     params
   })
 }
+
+// 游客登录
+export function touristLogin(){
+  return instance.get('/register/anonimous')
+}
+
+// 退出
+export function logout(){
+  return instance.get('/logout')
+}
+
+
