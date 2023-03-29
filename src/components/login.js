@@ -1,46 +1,50 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback,useRef } from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
+import { loginQrKey, loginQrCode } from '../services/login'
+import { getQRCode } from '../utils/utils'
 
 import './index.less'
 // import styles from './index.less';
 
 function useLogin() {
   const [open, setOpen] = useState(false)
-
-  const openLogin = useCallback(() => {
+  const [url, setUrl] = useState()
+  const key = useRef();
+  const openLogin = useCallback(async () => {
     // 全局只打开一个登陆弹框
+    const res = await loginQrKey()
+    // 1. 获取key
+    key.current = res.unikey
+    // 目前只支持 二维码登陆
+    const resp = await loginQrCode({ key })
+    const codeurl = await getQRCode(resp.qrurl)
+    setUrl(codeurl)
+    console.log('codeurl', codeurl)
     setOpen(true)
-  }, [])
+  }, [key])
 
   const handleClose = useCallback(() => {
     //todo
     setOpen(false)
   }, [])
 
+  const handleLogin = useCallback(async () => {
+    setOpen(false)
+  }, [])
+
   return (
     <>
       <Button onClick={openLogin}>登录</Button>
-      <Dialog title="Dialog With Actions" open={open} className='dialog-wrapper'>
-        The actions in this window were passed in as an array of React objects.
-        {/* footer上只有提交和取消按钮 */}
-        {/* className="login-button-list"  能把类名挂载到div上但是样式不起作用 （尝试加!important依旧） */}
-        <TextField hintText="Hint Text" errorText="This field is required" />
-        <br />
-        <TextField
-          hintText="Hint Text"
-          errorText="The error text can be as long as you want, it will wrap."
-          type="password"
-        />
-        <br />
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Button primary={true} onClick={handleClose}>
-            确认提交
-          </Button>
-          <Button primary={true} keyboardFocused={true} onClick={handleClose}>
-            关闭
-          </Button>
+      <Dialog title="Dialog With Actions" open={open}>
+        <div className="dialog-wrapper">
+          请扫描二维码登录
+          <br />
+          <img src={url} alt=""></img>
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <Button onClick={handleLogin}>已扫描</Button>
+            <Button onClick={handleClose}>关闭</Button>
+          </div>
         </div>
       </Dialog>
     </>
