@@ -1,8 +1,12 @@
 import instance from './axios'
 
+// 获取登录状态
+export function isLogin (){
+  return instance.get('/login/status')
+}
 // 登陆请求（暂时绕不开验证）
 export function login (params){
-  return instance.get('login/cellphone',{
+  return instance.get('/login/cellphone',{
     params,
   })
 }

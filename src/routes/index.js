@@ -1,42 +1,46 @@
+import React, { useEffect } from 'react'
 import { Router, Route } from 'react-router-dom'
 import routes from './routes'
 import { createBrowserHistory } from 'history'
-import login from '../components/login'
-import sideBar from '../myComponents/sideBar/index'
+import Login from '../components/login'
+import SideBar from '../myComponents/sideBar'
+import Nav from '../myComponents/nav'
+import SongList from '../myComponents/songList'
+import { isLogin } from '../services/login'
 
 const history = createBrowserHistory()
 
 function RouterConfig() {
+
+  // 查询登录状态
+  useEffect(() => {
+    console.log('查询登录状态')
+    // 查询登录状态 没有拿到res
+    async function checkIsLogin() {
+      const res = await isLogin()
+      console.log('res～～～', res)
+    }
+    checkIsLogin()
+  }, [])
   return (
-    <Router history={history}>
-      {/*  */}
-      {sideBar()}
-      <nav>
-        <ul>
-          <li>
-            <a to="/" href="/">
-              Home
-            </a>
-          </li>
-          <li>
-            <a to="/about" href="/about">
-              About
-            </a>
-          </li>
-        </ul>
-      </nav>
-      {routes.map((route) => {
-        return (
-          <Route
-            key={route.path}
-            path={route.path}
-            component={route.component}
-            exact={route.exact}
-          ></Route>
-        )
-      })}
-      {login()}
-    </Router>
+      <div>
+        <SideBar />
+        <Nav />
+        <Login />
+        <SongList/>
+        <Router history={history}>
+          {routes.map((route) => {
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+              ></Route>
+            )
+          })}
+        </Router>
+      </div>
   )
 }
 export default RouterConfig

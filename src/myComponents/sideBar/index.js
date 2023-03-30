@@ -3,10 +3,16 @@ import React from "react";
 
 import   './index.less'
 
-export default function sideBar() {
+export default function SideBar() {
   return (
     <>
-      <div className='logo-container'> FRIENDS </div>
+      <div className='sideBar-container'> 
+      <div className='logo-container'>
+        logo
+       </div>
+      <div className='search-container'>searcher </div>
+      <div className='songlist-container'>songlist </div>
+      </div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import { getQRCode } from '../utils/utils'
 import './index.less'
 // import styles from './index.less';
 
-function useLogin() {
+function Login() {
   const [open, setOpen] = useState(false)
   const [url, setUrl] = useState()
   const key = useRef();
@@ -35,13 +35,14 @@ function useLogin() {
 
   return (
     <>
+      {/* 未登录时展示 登录 已登录时展示 个人ID */}
       <Button onClick={openLogin}>登录</Button>
       <Dialog title="Dialog With Actions" open={open}>
         <div className="dialog-wrapper">
           请扫描二维码登录
           <br />
           <img src={url} alt=""></img>
-          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div className='login-button-list'>
             <Button onClick={handleLogin}>已扫描</Button>
             <Button onClick={handleClose}>关闭</Button>
           </div>
@@ -50,4 +51,4 @@ function useLogin() {
     </>
   )
 }
-export default useLogin
+export default Login

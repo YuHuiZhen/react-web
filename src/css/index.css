@@ -1,0 +1,8 @@
+.dialog-wrapper {
+  padding: 25px 30px;
+}
+.dialog-wrapper .login-button-list {
+  display: flex !important;
+  justify-content: space-around !important;
+}
+/*# sourceMappingURL=./index.css.map */
