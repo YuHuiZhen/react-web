@@ -321,6 +321,11 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        // 配置别名
+        '@': path.resolve(__dirname, '../src'),
+        'services': path.resolve(__dirname, '../src/services'),
+        'utils': path.resolve(__dirname, '../src/utils'),
+        'components': path.resolve(__dirname, '../src/components'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).

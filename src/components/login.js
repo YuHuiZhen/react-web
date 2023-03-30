@@ -1,8 +1,8 @@
 import React, { useState, useCallback,useRef } from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import Button from '@material-ui/core/Button'
-import { loginQrKey, loginQrCode } from '../services/login'
-import { getQRCode } from '../utils/utils'
+import { loginQrKey, loginQrCode } from 'services/login'
+import { getQRCode } from 'utils/utils'
 
 import './index.less'
 // import styles from './index.less';

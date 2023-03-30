@@ -1,5 +1,5 @@
 import React,{useEffect} from "react"
-import { getBestPlaylist } from '../../services/songs'
+import { getBestPlaylist } from '@/services/songs'
 
 export default function SongList(){
   useEffect(() => {

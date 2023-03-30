@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { Router, Route } from 'react-router-dom'
 import routes from './routes'
 import { createBrowserHistory } from 'history'
-import Login from '../components/login'
-import SideBar from '../myComponents/sideBar'
-import Nav from '../myComponents/nav'
-import SongList from '../myComponents/songList'
-import { isLogin } from '../services/login'
+import Login from '@/components/login'
+import SideBar from '@/myComponents/sideBar'
+import Nav from '@/myComponents/nav'
+import SongList from '@/myComponents/songList'
+import { isLogin } from '@/services/login'
 
 const history = createBrowserHistory()
 
@@ -15,7 +15,7 @@ function RouterConfig() {
   // 查询登录状态
   useEffect(() => {
     console.log('查询登录状态')
-    // 查询登录状态 没有拿到res
+    // 查询登录状态
     async function checkIsLogin() {
       const res = await isLogin()
       console.log('res～～～', res)
