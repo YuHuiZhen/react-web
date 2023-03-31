@@ -1,12 +1,16 @@
 // 主页
 import React from 'react'
-import List from '@/myComponents/list'
-import Wrapper from '@/myComponents/wrapper'
+import Login from '@/components/login'
+import Nav from '@/myComponents/nav'
+import SongList from '@/myComponents/songList'
 
 export default function Home() {
   return (
     <>
-    <Wrapper content ={List}></Wrapper>
+      <Nav />
+      <Login />
+      <SongList />
+      This is home This is home This is home This is home This is home This is home This is home This is home
     </>
   )
 }

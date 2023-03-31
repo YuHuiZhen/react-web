@@ -81,12 +81,18 @@ less
 && mobx 状态控制 && css控制样式
 
 <!-- 流程 -->
+
 1. 进入系统 判断是否有cookie（cookie缓存一定时间（待定）） 没有cookie则弹框是否需要登录 下方提示：是否使用游客模式
 2. 是 则扫描二维码登录 游客登录则使用游客cookie 
+3. 接口慢时增加loading效果 （自己画一个loading）
+
+react Props 传递函数 和 传递组件
 
 通用组件 ：
 BlockContent 包含 【header】 与 【Content】
 样式透传控制 宽 && 高 && hover效果 
 歌曲详情页 黑胶效果 
 
-
+暂定SPA
+固定展示 Header / Footer / SiderBar 
+路由随着内容改变 Content

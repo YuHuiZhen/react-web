@@ -2,16 +2,14 @@ import React, { useEffect } from 'react'
 import { Router, Route } from 'react-router-dom'
 import routes from './routes'
 import { createBrowserHistory } from 'history'
-import Login from '@/components/login'
-import SideBar from '@/myComponents/sideBar'
-import Nav from '@/myComponents/nav'
-import SongList from '@/myComponents/songList'
 import { isLogin } from '@/services/login'
+import Wrapper from '@/myComponents/wrapper'
+import List from '@/myComponents/list'
+// import { Observer } from 'mobx-react-lite'
 
 const history = createBrowserHistory()
 
 function RouterConfig() {
-
   // 查询登录状态
   useEffect(() => {
     console.log('查询登录状态')
@@ -22,13 +20,13 @@ function RouterConfig() {
     }
     checkIsLogin()
   }, [])
+
   return (
-      <div>
-        <SideBar />
-        <Nav />
-        <Login />
-        <SongList/>
-        <Router history={history}>
+    <div>
+      <Wrapper >
+        <List/>
+      </Wrapper>
+      <Router history={history}>
           {routes.map((route) => {
             return (
               <Route
@@ -40,7 +38,7 @@ function RouterConfig() {
             )
           })}
         </Router>
-      </div>
+    </div>
   )
 }
 export default RouterConfig

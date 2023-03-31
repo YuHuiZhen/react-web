@@ -1,8 +1,10 @@
-export default function Content({Content}){
+import List from "@/myComponents/list"
+export default function Content(){
   return (
     <div className="content-wrapper"> 
-    This is Content
-    {Content()}
+    <List/>
+    
+  
     </div>
   )
 }

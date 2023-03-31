@@ -2,10 +2,10 @@
 export const footerLinks = [
   {
     link:'https:www.Google.com',
-    content:'Google'
+    content:'Google',
   },
   {
-    link:'https:www.Google.com',
+    link:'https:www.baidu.com',
     content:'Google'
   },
   {

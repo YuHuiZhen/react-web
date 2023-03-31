@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import GridList from '@material-ui/core/GridList'
-import GridTile from '@material-ui/core/GridListTile'
+import GridTile from '@material-ui/core/ImageListItem'
 
 import { getNewestMV } from 'services/mv'
 
@@ -14,8 +14,8 @@ export default function List(props) {
       setData(res)
     })
   }, [])
-  
-  //  flex布局 通过改变flex-direction （主轴） 
+
+  //  flex布局 通过改变flex-direction （主轴）
   // flex-wrap 换行方式
 
   const styles = {
@@ -36,9 +36,8 @@ export default function List(props) {
         <GridList style={styles.gridList} cols={3.2}>
           {tilesData?.map((tile) => (
             <GridTile
-              key={tile.img}
+              key={tile.cover}
               title={tile.name}
-              // actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
               // titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
             >
               <img src={tile.cover} alt="" />

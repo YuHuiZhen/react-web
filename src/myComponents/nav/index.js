@@ -5,7 +5,7 @@ export default function Nav() {
         <ul>
           <li>
             <a to="/" href="/">
-              Home
+              Home！！！！！！！
             </a>
           </li>
           <li>

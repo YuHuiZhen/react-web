@@ -1,4 +1,21 @@
 .header-wrapper {
-  background: #1890ff;
+  background: grey;
+  height: 120px;
+}
+.content-wrapper {
+  margin-left: 270px;
+  margin-top: 10px;
+}
+.footer-wrapper {
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  background: grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footer-wrapper .a-link {
+  padding-right: 8px;
 }
 /*# sourceMappingURL=./index.css.map */
