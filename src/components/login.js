@@ -1,7 +1,7 @@
-import React, { useState, useCallback,useRef } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import Button from '@material-ui/core/Button'
-import { loginQrKey, loginQrCode } from 'services/login'
+import { loginQrKey, loginQrCode, touristLogin } from 'services/login'
 import { getQRCode } from 'utils/utils'
 
 import './index.less'
@@ -10,7 +10,7 @@ import './index.less'
 function Login() {
   const [open, setOpen] = useState(false)
   const [url, setUrl] = useState()
-  const key = useRef();
+  const key = useRef()
   const openLogin = useCallback(async () => {
     // 全局只打开一个登陆弹框
     const res = await loginQrKey()
@@ -20,7 +20,6 @@ function Login() {
     const resp = await loginQrCode({ key })
     const codeurl = await getQRCode(resp.qrurl)
     setUrl(codeurl)
-    console.log('codeurl', codeurl)
     setOpen(true)
   }, [key])
 
@@ -33,6 +32,18 @@ function Login() {
     setOpen(false)
   }, [])
 
+  const toTouristLogin = useCallback(async () => {
+   fetch('/register/anonimous').then((response)=>{
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log('111',response)
+      return response;
+    })
+    const res = await touristLogin()
+    console.log('ressssss', res)
+  }, [])
+
   return (
     <>
       {/* 未登录时展示 登录 已登录时展示 个人ID */}
@@ -42,7 +53,10 @@ function Login() {
           请扫描二维码登录
           <br />
           <img src={url} alt=""></img>
-          <div className='login-button-list'>
+          <p>
+            只想看看？ <Button onClick={toTouristLogin}>游客模式登录</Button>
+          </p>
+          <div className="login-button-list">
             <Button onClick={handleLogin}>已扫描</Button>
             <Button onClick={handleClose}>关闭</Button>
           </div>

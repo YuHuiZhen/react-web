@@ -1,13 +1,40 @@
-@keyframes loading-content {
+@keyframes bounce {
   0%{
-    top:0;
+    transform: translateY(0);
   }
   100%{
-    top:20px
+    transform: translateY(-10px);
   }
 }
-.loading-content{
-  width: 200px;
-  height: 200px;
-  background: blue;
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%!;
+  height: 100%!;
+  
+  // 共同属性
+  &__circle {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 50%!;
+    background-color: #ccc;
+    animation: bounce 0.5s infinite alternate;
+  }
+  
+  // 单独延迟
+  &__circle--1 {
+    animation-delay: 0.1s;
+  }
+  
+  &__circle--2 {
+    animation-delay: 0.2s;
+  }
+  
+  &__circle--3 {
+    animation-delay: 0.3s;
+  }
 }

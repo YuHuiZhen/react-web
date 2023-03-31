@@ -1,7 +1,7 @@
 export default function Nav() {
   return (
     <>
-      <nav>
+      <nav className="nav-list-wrapper">
         <ul>
           <li>
             <a to="/" href="/">

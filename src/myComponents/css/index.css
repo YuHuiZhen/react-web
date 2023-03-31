@@ -1,21 +1,5 @@
-.header-wrapper {
-  background: grey;
-  height: 120px;
-}
-.content-wrapper {
-  margin-left: 270px;
-  margin-top: 10px;
-}
-.footer-wrapper {
-  height: 80px;
-  position: fixed;
-  bottom: 0;
-  background: grey;
-  width: 100%;
+.nav-list-wrapper {
   display: flex;
-  justify-content: center;
-}
-.footer-wrapper .a-link {
-  padding-right: 8px;
+  flex-direction: row;
 }
 /*# sourceMappingURL=./index.css.map */

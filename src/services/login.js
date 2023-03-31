@@ -33,7 +33,7 @@ export function searchMusic(params){
 
 // 游客登录
 export function touristLogin(){
-  return instance.get('/register/anonimous')
+  return instance.post('/register/anonimous')
 }
 
 // 退出
@@ -41,4 +41,7 @@ export function logout(){
   return instance.get('/logout')
 }
 
-
+// 获取国家地址列表
+export function getAddress(){
+  return instance.get('/countries/code/list')
+}
