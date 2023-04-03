@@ -11,7 +11,7 @@ export default function List(props) {
   // 展示最新mv
   useEffect(() => {
     getNewestMV().then((res) => {
-      setData(res)
+      setData(res.data)
     })
   }, [])
 
@@ -33,6 +33,7 @@ export default function List(props) {
   return (
     <>
       <div style={styles.root}>
+        {/* too:报错 */}
         <GridList style={styles.gridList} cols={3.2}>
           {tilesData?.map((tile) => (
             <GridTile

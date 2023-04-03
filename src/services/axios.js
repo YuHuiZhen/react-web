@@ -5,7 +5,9 @@ const instance = axios.create({
   timeout: 5000, // 设置请求超时时间
   headers: {
     'Content-Type': 'application/json' // 设置请求头
-  }
+  },
+   // 请求携带cookie
+   withCredentials: true,
 });
 
 // 请求拦截器
@@ -24,8 +26,9 @@ instance.interceptors.request.use(config => {
 // 响应拦截器
 instance.interceptors.response.use(response => {
   // 对响应数据做些什么
-  if (response.data.code === 200) {
-    return response.data.data;
+  // 接口返回数据格式层级不统一 需要注意
+  if (response.data.code === 200 || response.code === 200) {
+    return Promise.resolve(response.data);
   } else {
     return Promise.reject(response.data.message);
   }

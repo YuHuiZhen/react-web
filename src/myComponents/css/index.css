@@ -1,5 +1,16 @@
-.nav-list-wrapper {
+.sideBar-container {
+  box-sizing: border-box;
+  width: 260px;
+  padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #423d3d;
+}
+.sideBar-container .search-container {
+  display: flex;
 }
 /*# sourceMappingURL=./index.css.map */

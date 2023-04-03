@@ -18,7 +18,7 @@ function Login() {
     key.current = res.unikey
     // 目前只支持 二维码登陆
     const resp = await loginQrCode({ key })
-    const codeurl = await getQRCode(resp.qrurl)
+    const codeurl = await getQRCode(resp.data.qrurl)
     setUrl(codeurl)
     setOpen(true)
   }, [key])
@@ -33,13 +33,6 @@ function Login() {
   }, [])
 
   const toTouristLogin = useCallback(async () => {
-   fetch('/register/anonimous').then((response)=>{
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      console.log('111',response)
-      return response;
-    })
     const res = await touristLogin()
     console.log('ressssss', res)
   }, [])
