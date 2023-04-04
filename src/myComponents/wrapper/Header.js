@@ -1,6 +1,6 @@
 import React from "react"
 import Nav from "@/myComponents/nav"
-import Login from '@/components/login'
+import Login from '@/components/Login'
 
 export default function Header(){
   

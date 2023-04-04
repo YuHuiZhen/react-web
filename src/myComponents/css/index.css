@@ -1,16 +1,25 @@
-.sideBar-container {
-  box-sizing: border-box;
-  width: 260px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background-color: #423d3d;
+.header-wrapper {
+  background: grey;
+  height: 10%;
+  margin-left: 270px;
 }
-.sideBar-container .search-container {
+.content-wrapper {
+  margin-left: 270px;
+  margin-top: 10px;
+  max-height: 76%;
+}
+.footer-wrapper {
+  height: 12%;
+  position: fixed;
+  bottom: 0;
+  background: grey;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  margin-left: 270px;
+}
+.footer-wrapper .a-link {
+  padding-right: 8px;
+  text-decoration: none;
 }
 /*# sourceMappingURL=./index.css.map */

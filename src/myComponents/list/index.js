@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import GridList from '@material-ui/core/GridList'
 import GridTile from '@material-ui/core/ImageListItem'
 
-import { getNewestMV } from 'services/mv'
-
 // 收藏列表 && 排行榜列表 && 歌单列表
 export default function List(props) {
-  const [tilesData, setData] = useState()
-
-  // 展示最新mv
-  useEffect(() => {
-    getNewestMV().then((res) => {
-      setData(res.data)
-    })
-  }, [])
-
+ 
   //  flex布局 通过改变flex-direction （主轴）
   // flex-wrap 换行方式
 
@@ -35,7 +25,7 @@ export default function List(props) {
       <div style={styles.root}>
         {/* too:报错 */}
         <GridList style={styles.gridList} cols={3.2}>
-          {tilesData?.map((tile) => (
+          {props.tilesData?.map((tile) => (
             <GridTile
               key={tile.cover}
               title={tile.name}

@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import List from '@/myComponents/list'
 import Loading from '@/components/Loading'
-import { isLogin } from '@/services/login'
+
+import { getNewestMV } from 'services/mv'
 
 export default function Content() {
+  // 记录是否加载
+  const [tilesData, setData] = useState()
+
+  // 展示最新mv
   useEffect(() => {
-    console.log('查询登录状态')
-    // 查询登录状态
-    async function checkIsLogin() {
-      const res = await isLogin()
-      console.log('res～～～', res)
-    }
-    checkIsLogin()
+    getNewestMV().then((res) => {
+      setData(res.data)
+    })
   }, [])
 
   return (
     <div className="content-wrapper">
-      <Loading>
-      </Loading>
-      <List />
+      {tilesData ? <List tilesData={tilesData} /> : <Loading />}
     </div>
   )
 }

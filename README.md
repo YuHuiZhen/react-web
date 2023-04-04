@@ -96,3 +96,5 @@ BlockContent 包含 【header】 与 【Content】
 暂定SPA
 固定展示 Header / Footer / SiderBar 
 路由随着内容改变 Content
+
+<!-- 学习使用context 管理一些全局变量 -->
